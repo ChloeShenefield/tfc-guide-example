@@ -8,10 +8,10 @@ provider "random" {
   version = "2.2"
 }
 
-resource "random_pet" "table_name" {}
+resource "my_db" "table_name" {}
 
-resource "aws_dynamodb_table" "tfc_example_table" {
-  name = "${var.db_table_name}-${random_pet.table_name.id}"
+resource "aws_dynamodb_table" "my_table" {
+  name = "${var.db_table_name}-${my_db.table_name.id}"
 
   read_capacity  = var.db_read_capacity
   write_capacity = var.db_write_capacity
